@@ -12,14 +12,14 @@
 	</head>
 
 	<body>
-		<table>
-			<tbody>
-				<tr>
+		<table id="table">
+			<tbody id = "body">
+				<tr id= "fullPage">
 					<td id ="apple">
 						<table>
 							<tbody>
 								<tr>
-									<td class="fruitName">Apple</td>
+									<td class="fruitName">Apple price:</td>
 									<td class="currentPrice">$<span id="currentApplePrice"></span></td>
 								</tr>
 								<tr>
@@ -28,7 +28,7 @@
 								</tr>
 								<tr>
 									<td class="currentInventory">0</td>
-									<td id="averageApplePrice">$<span class="averagePrice"></span></td>
+									<td id="averageApplePrice">Avg $<span class="averagePrice"></span></td>
 								</tbody>
 							</table>
 					</td>
@@ -36,7 +36,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="fruitName">Orange</td>
+									<td class="fruitName">Orange price:</td>
 									<td class="currentPrice">$<span id="currentOrangePrice"></span></td>
 								</tr>
 								<tr>
@@ -45,17 +45,17 @@
 								</tr>
 								<tr>
 									<td class="currentInventory">0</td>
-									<td id="averageOrangePrice">$<span class="averagePrice"></span></td>
+									<td id="averageOrangePrice">Avg $<span class="averagePrice"></span></td>
 								</tbody>
 							</table>
 						</td>
 				</tr>
-				<tr>
+				<tr id="fullPage">
 					<td id ="banana">
 						<table>
 							<tbody>
 								<tr>
-									<td class="fruitName">Banana</td>
+									<td class="fruitName">Banana price:</td>
 									<td class="currentPrice">$<span id="currentBananaPrice"></span></td>
 								</tr>
 								<tr>
@@ -64,7 +64,7 @@
 								</tr>
 								<tr>
 									<td class="currentInventory">0</td>
-									<td id="averageBananaPrice">$<span class="averagePrice"></span></td>
+									<td id="averageBananaPrice">Avg $<span class="averagePrice"></span></td>
 								</tbody>
 							</table>
 						</td>
@@ -72,7 +72,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="fruitName">Grape</td>
+									<td class="fruitName">Grape price:</td>
 									<td class="currentPrice">$<span id="currentGrapePrice"></span></td>
 								</tr>
 								<tr>
@@ -81,15 +81,17 @@
 								</tr>
 								<tr>
 									<td class="currentInventory">0</td>
-									<td id="averageGrapePrice">$<span class="averagePrice"></span></td>
+									<td id="averageGrapePrice">Avg $<span class="averagePrice"></span></td>
 								</tbody>
 							</table>
 						</td>
 				</tr>
 			</tbody>
 		</table>
-		<div id= "time"></div>
-		<div>Money Remaining: $<span id="money"></span></div>
-
+		<div id="container">
+			<div>Welcome to the Fruit Bazaar!</div>
+			<div id= "time">Time Remaining 5:00</div>
+			<div>Money Remaining: $<span id="money"></span></div>
+		</div>
 	</body>
 </html>

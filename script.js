@@ -1,9 +1,9 @@
-var applePrice = 2.00, orangePrice = 2.00, bananaPrice = 2.00, grapePrice = 2.00, time = 10, currentMoney = 100.00, appleCounter = 0, orangeCounter = 0, bananaCounter = 0, grapeCounter = 0;
+var applePrice = randomNumber(50, 999)/100, orangePrice = randomNumber(50, 999)/100, bananaPrice = randomNumber(50, 999)/100, grapePrice = randomNumber(50, 999)/100, time = 300, currentMoney = 100.00, appleCounter = 0, orangeCounter = 0, bananaCounter = 0, grapeCounter = 0;
 alert('Welcome to the fruit bazaar! How much profit can you generate in your time here? Click OK to play!');
 var timeDisplay = setInterval(function(){
 			time--;
 			var adjusted = timeAdjust(time);
-			$('#time').text(adjusted);
+			$('#time').text('Time Remaining '+adjusted);
 			endCounter();
 		}, 1000);
 var priceUpdate = setInterval(function(){
@@ -139,5 +139,20 @@ function endCounter(){
 	if (time==0){
 		clearInterval(timeDisplay);
 		clearInterval(priceUpdate);
+		appleAdd = $('#apple').find('#currentApplePrice').text()*$('#apple').find('.currentInventory').text();
+		orangeAdd = $('#orange').find('#currentOrangePrice').text()*$('#orange').find('.currentInventory').text();
+		bananaAdd = $('#banana').find('#currentBananaPrice').text()*$('#banana').find('.currentInventory').text();
+		grapeAdd = $('#grapes').find('#currentGrapePrice').text()*$('#grapes').find('.currentInventory').text();
+		currentMoney += appleAdd + orangeAdd + bananaAdd + grapeAdd;
+		$('.currentInventory').text('0');
+		$('#time').text('0');
+		if (currentMoney > 100) {
+			alert('You have made $' + (currentMoney - 100).toFixed(2));
+		} else if (currentMoney < 100) {
+			alert('You have lost $' + (100 - currentMoney).toFixed(2));
+		} else {
+			alert('You broke even');
+		}
+
 	}
 }
