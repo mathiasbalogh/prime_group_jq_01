@@ -1,4 +1,4 @@
-var applePrice = 2.00 , orangePrice = 2.00 , bananaPrice = 2.00 , grapePrice = 2.00 , time = 100;
+var applePrice = 2.00 , orangePrice = 2.00 , bananaPrice = 2.00 , grapePrice = 2.00 , time = 100 , currentMoney = 100.00;
 alert('Welcome to the fruit bazaar! How much profit can you generate in your time here? Click OK to play!');
 var timeDisplay = setInterval(function(){
 			time--;
@@ -14,7 +14,7 @@ var priceUpdate = setInterval(function(){
 	}else if (applePrice < .50) {
 		applePrice = .50;
 	}
-	$('.currentApplePrice').text('$'+ applePrice.toFixed(2));
+	$('#currentApplePrice').text(applePrice.toFixed(2));
 
 	var randomOranges = randomNumber(-50,50);
 	orangePrice += randomOranges/100;
@@ -23,7 +23,7 @@ var priceUpdate = setInterval(function(){
 	}else if (orangePrice < .50) {
 		orangePrice = .50;
 	}
-	$('.currentOrangePrice').text('$'+ orangePrice.toFixed(2));
+	$('#currentOrangePrice').text(orangePrice.toFixed(2));
 
 	var randomBananas = randomNumber(-50,50);
 	bananaPrice += randomBananas/100;
@@ -32,7 +32,7 @@ var priceUpdate = setInterval(function(){
 	}else if (bananaPrice < .50) {
 		bananaPrice = .50;
 	}
-	$('.currentBananaPrice').text('$'+ bananaPrice.toFixed(2));
+	$('#currentBananaPrice').text(bananaPrice.toFixed(2));
 
 	var randomGrapes = randomNumber(-50,50);
 	grapePrice += randomGrapes/100;
@@ -41,17 +41,47 @@ var priceUpdate = setInterval(function(){
 	}else if (grapePrice < .50) {
 		grapePrice = .50;
 	}
-	$('.currentGrapePrice').text('$'+ grapePrice.toFixed(2));
+	$('#currentGrapePrice').text(grapePrice.toFixed(2));
 }, 15000);
 
 $(function(){
 
-	// timeDisplay;
-	$('.currentApplePrice').text('$'+ applePrice.toFixed(2));
-	$('.currentOrangePrice').text('$'+ orangePrice.toFixed(2));
-	$('.currentBananaPrice').text('$'+ bananaPrice.toFixed(2));
-	$('.currentGrapePrice').text('$'+ grapePrice.toFixed(2));
 
+	$('#currentApplePrice').text(applePrice.toFixed(2));
+	$('#currentOrangePrice').text(orangePrice.toFixed(2));
+	$('#currentBananaPrice').text( bananaPrice.toFixed(2));
+	$('#currentGrapePrice').text(grapePrice.toFixed(2));
+	$('#money').text(currentMoney.toFixed(2));
+
+	$('.buy').on('click', function() {
+		var fruitValue=Number($(this).parent().parent().parent().find('.currentInventory').text());
+		var change = $(this).parent().parent().parent().find('.currentPrice').text();
+		change = change.substring(1, change.length);
+		if (currentMoney >= change) {
+			currentMoney -= change;
+			console.log($(this).parent().parent().parent().find('.currentPrice').text());
+			$('#money').text(currentMoney.toFixed(2));
+			fruitValue++;
+			$(this).parent().parent().parent().find('.currentInventory').text(fruitValue);
+		}
+	});
+
+	$('.sell').on('click', function() {
+		var fruitValue=Number($(this).parent().parent().parent().find('.currentInventory').text());
+		// fruitValue--;
+		if (fruitValue > 0) {
+			fruitValue--;
+			$(this).parent().parent().parent().find('.currentInventory').text(fruitValue);
+			var change = $(this).parent().parent().parent().find('.currentPrice').text();
+			change = change.substring(1, change.length);
+			currentMoney += Number(change);
+			$('#money').text(currentMoney.toFixed(2));
+		} else {
+			fruitValue = 0;
+			$(this).parent().parent().parent().find('.currentInventory').text(fruitValue);
+		}
+
+	});
 
 });
 
