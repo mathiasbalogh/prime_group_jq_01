@@ -144,7 +144,7 @@ function endCounter(){
 		bananaAdd = $('#banana').find('#currentBananaPrice').text()*$('#banana').find('.currentInventory').text();
 		grapeAdd = $('#grapes').find('#currentGrapePrice').text()*$('#grapes').find('.currentInventory').text();
 		currentMoney += appleAdd + orangeAdd + bananaAdd + grapeAdd;
-		$('.currentInventory').text('0');
+		$('.currentInventory').text('Time Remaining 0:00');
 		$('#time').text('0');
 		if (currentMoney > 100) {
 			alert('You have made $' + (currentMoney - 100).toFixed(2));
