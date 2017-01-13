@@ -60,13 +60,14 @@ $(function(){
 				change = change.substring(1, change.length);
 				if (currentMoney >= change) {
 					currentMoney -= change;
+					console.log(change);
 					// console.log($(this).parent().parent().parent().find('.currentPrice').text());
 					$('#money').text(currentMoney.toFixed(2));
 					fruitValue++;
 					$(this).parent().parent().parent().find('.currentInventory').text(fruitValue);
 					var average=Number($(this).parent().parent().parent().find('.averagePrice').text());
 					switch($(this).parent().parent().parent().find('.fruitName').text()){
-						case 'Apple':
+						case 'Apple price:':
 						appleCounter++;
 						if (appleCounter == 1) {
 							average = change;
@@ -74,15 +75,16 @@ $(function(){
 							average = ((average * (appleCounter-1))+Number(change))/appleCounter;
 						}
 						break;
-						case 'Orange':
+						case 'Orange price:':
 						orangeCounter++;
 						if (orangeCounter == 1) {
 							average = change;
+
 						} else {
 							average = ((average * (orangeCounter-1))+Number(change))/orangeCounter;
 						}
 						break;
-						case 'Banana':
+						case 'Banana price:':
 						bananaCounter++;
 						if (bananaCounter == 1) {
 							average = change;
@@ -144,8 +146,8 @@ function endCounter(){
 		bananaAdd = $('#banana').find('#currentBananaPrice').text()*$('#banana').find('.currentInventory').text();
 		grapeAdd = $('#grapes').find('#currentGrapePrice').text()*$('#grapes').find('.currentInventory').text();
 		currentMoney += appleAdd + orangeAdd + bananaAdd + grapeAdd;
-		$('.currentInventory').text('Time Remaining 0:00');
-		$('#time').text('0');
+		$('.currentInventory').text('0');
+		$('#time').text('Time Remaining 0:00');
 		if (currentMoney > 100) {
 			alert('You have made $' + (currentMoney - 100).toFixed(2));
 		} else if (currentMoney < 100) {

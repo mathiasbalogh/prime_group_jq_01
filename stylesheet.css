@@ -1,7 +1,7 @@
 body {
   font-family: Helvetica, sans-serif;
   height: 100%;
-  font-size:25px;
+  font-size:1.2em;
 }
 #table  {
   left:0px;
@@ -43,11 +43,11 @@ button{
   left:33.5%;
   border: 5px solid black;
   background-color:white;
-  height: 150px;
-  width:600px;
+  height: 3em;
+  width:14em;
   text-align: center;
-  font-size:44px;
-  padding:20px;
+  font-size:1.2em;
+  padding:0.8em;
 }
 table{
   margin:auto;
